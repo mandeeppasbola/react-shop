@@ -1,0 +1,25 @@
+export const SET_PRODUCTS = 'SET_PRODUCTS';
+export const SET_PRODUCT = 'SET_PRODUCT';
+
+export const SET_CART = 'SET_CART';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+
+export const SET_FAV = 'SET_FAV';
+export const ADD_TO_FAV = 'ADD_TO_FAV';
+export const REMOVE_FROM_FAV = 'REMOVE_FROM_FAV';
+
+export const SET_USER = 'SET_USER';
+export const ADD_TO_USER_CART = 'ADD_TO_USER_CART';
+export const REMOVE_FROM_USER_CART = 'REMOVE_FROM_USER_CART';
+export const ADD_TO_USER_FAV = 'ADD_TO_USER_FAV';
+export const REMOVE_FROM_USER_FAV = 'REMOVE_FROM_USER_FAV';
+
+export const SET_SAVED = 'SET_SAVED';
+export const ADD_TO_SAVED = 'ADD_TO_SAVED';
+export const REMOVE_FROM_SAVED = 'REMOVE_FROM_SAVED';
+export const ADD_TO_USER_SAVED = 'ADD_TO_USER_SAVED';
+export const REMOVE_FROM_USER_SAVED = 'REMOVE_FROM_USER_SAVED';
+
+export const SET_NOTIFICATION = 'SET_NOTIFICATION';
+export const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
