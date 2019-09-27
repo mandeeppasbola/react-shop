@@ -36,7 +36,7 @@ export const favInitialState = {
 
 export const userInitialState = {
   user: {},
-  cart: [],
+  cart: {},
   fav: [],
   saved: []
 }
@@ -44,4 +44,8 @@ export const userInitialState = {
 export const notificationInitialState = {
   message: '',
   variant: ''
+}
+
+export const categoryInitialState = {
+  category: []
 }

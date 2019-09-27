@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
-import ItemActions from './ItemActions';
+import ItemActionsContainer from '../containers/ItemActions';
 import ItemPrices from './ItemPrices';
 
 const useStyles = makeStyles(theme => ({
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Detail = ({ match, product, getDetailsThunk, addToCartThunk, addToFavThunk, removeFromFavThunk }) => {
+const Detail = ({ match, product, getDetailsThunk }) => {
   const classes = useStyles();
   useEffect(() => {
     getDetailsThunk(match.params.id);
@@ -37,7 +37,7 @@ const Detail = ({ match, product, getDetailsThunk, addToCartThunk, addToFavThunk
             </Typography>
           </div>
           <div className={classes.actions}>
-            <ItemActions variant="detail" data={product} addToCart={addToCartThunk} addToFav={addToFavThunk} removeFromFav={removeFromFavThunk} />
+            <ItemActionsContainer variant="detail" data={product} />
           </div>
         </Grid>
         <Grid item xs={12} sm={2}>

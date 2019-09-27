@@ -9,11 +9,11 @@ export const setUserAction = (user) => {
   )
 }
 
-export const addToUserCartAction = (skuId) => {
+export const addToUserCartAction = (cartObj) => {
   return (
     {
       type: type.ADD_TO_USER_CART,
-      payload: skuId
+      payload: cartObj
     }
   )
 }

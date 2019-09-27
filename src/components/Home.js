@@ -5,11 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
-const Home = ({ getUserThunk }) => {
-  useEffect(() => {
-    getUserThunk();
-  }, []);
-
+const Home = () => {
   return (
     <div>
       <Typography variant="h4" component="h1">

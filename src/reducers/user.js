@@ -1,5 +1,6 @@
 import * as type from '../actions/types';
 import { userInitialState } from './initialState';
+import { removeFromObject } from '../utilities';
 
 const userReducer = (state = userInitialState, action) => {
   switch (action.type) {
@@ -7,9 +8,9 @@ const userReducer = (state = userInitialState, action) => {
       return { ...state, ...action.payload }
     // Cart    
     case type.ADD_TO_USER_CART:
-      return { ...state, cart: [...state.cart, action.payload] }
+      return { ...state, cart: { ...state.cart, [action.payload.skuId]: action.payload.quantity } }
     case type.REMOVE_FROM_USER_CART:
-      return { ...state, cart: state.cart.filter((skuId) => skuId !== action.payload) }
+      return { ...state, cart: removeFromObject({ ...state.cart }, action.payload) }
     // Fav
     case type.ADD_TO_USER_FAV:
       return { ...state, fav: [...state.fav, action.payload] }

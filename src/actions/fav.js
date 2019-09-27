@@ -1,19 +1,19 @@
 import * as type from './types';
 
-export const setFavAction = (skuIdArr) => {
+export const setFavAction = (products) => {
   return (
     {
       type: type.SET_FAV,
-      payload: skuIdArr
+      payload: products
     }
   )
 }
 
-export const addToFavAction = (skuId) => {
+export const addToFavAction = (product) => {
   return (
     {
       type: type.ADD_TO_FAV,
-      payload: skuId
+      payload: product
     }
   )
 }

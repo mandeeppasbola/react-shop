@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import ItemActions from './ItemActions';
+import ItemActionsContainer from '../containers/ItemActions';
 import ItemPrices from './ItemPrices';
 
 import { AdapterLink } from '../utilities';
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const SavedItem = ({ data, moveToCart, removeFromSaved }) => {
+const SavedItem = ({ data }) => {
   const classes = useStyles();
 
   return (
@@ -46,7 +46,7 @@ const SavedItem = ({ data, moveToCart, removeFromSaved }) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <ItemActions variant='saved' data={data} moveToCart={moveToCart} removeFromSaved={removeFromSaved} />
+          <ItemActionsContainer variant='saved' data={data} />
           <Button aria-label="view details" component={AdapterLink} to={`/detail/${data.skuId}`}>
             View
           </Button>

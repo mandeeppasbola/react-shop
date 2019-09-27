@@ -1,14 +1,23 @@
 import { connect } from 'react-redux';
-import Header from '../components/Header';
+import { bindActionCreators } from 'redux';
 
-const mapStateToProps = ({ userReducer }, ownProps) => {
+import Header from '../components/Header';
+import { getUserThunk, getCategoryThunk } from '../thunks';
+
+const mapStateToProps = ({ userReducer, categoryReducer }, ownProps) => {
   const { cart, fav } = userReducer;
+  const { category } = categoryReducer;
   return {
     cart,
-    fav
+    fav,
+    category
   }
 }
 
-const HeaderContainer = connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return bindActionCreators({ getUserThunk, getCategoryThunk }, dispatch)
+}
+
+const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Header);
 
 export default HeaderContainer;

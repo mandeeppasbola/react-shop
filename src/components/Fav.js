@@ -6,15 +6,10 @@ import Typography from '@material-ui/core/Typography';
 
 import FavItem from './FavItem';
 
-const Fav = ({ userFav, fav, addToCartThunk, removeFromFavThunk, getFavThunk }) => {
+const Fav = ({ userFav, fav, getFavThunk }) => {
   useEffect(() => {
     getFavThunk(userFav);
   }, []);
-
-  const moveToCart = (product) => {
-    removeFromFavThunk(product.skuId);
-    addToCartThunk(product);
-  }
 
   return (
     <div>
@@ -25,7 +20,7 @@ const Fav = ({ userFav, fav, addToCartThunk, removeFromFavThunk, getFavThunk }) 
         {
           fav.map((data) => (
             <Grid item xs={12} sm={3} md={3} key={data.skuId}>
-              <FavItem data={data} moveToCart={moveToCart} removeFromFav={removeFromFavThunk} />
+              <FavItem data={data} />
             </Grid>
           ))
         }

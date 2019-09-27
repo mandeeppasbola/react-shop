@@ -9,11 +9,11 @@ export const setCartAction = (products) => {
   )
 }
 
-export const addToCartAction = (skuId) => {
+export const addToCartAction = (product) => {
   return (
     {
       type: type.ADD_TO_CART,
-      payload: skuId
+      payload: product
     }
   )
 }

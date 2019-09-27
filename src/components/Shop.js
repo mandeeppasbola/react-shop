@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 import ShopItem from './ShopItem';
 
-const Shop = ({ products, getProductsThunk, addToCartThunk, addToFavThunk, removeFromFavThunk, setNotificationAction }) => {
+const Shop = ({ products, getProductsThunk }) => {
   useEffect(() => {
     getProductsThunk({});
   }, []);
@@ -20,7 +20,7 @@ const Shop = ({ products, getProductsThunk, addToCartThunk, addToFavThunk, remov
         {
           products.map((data) => (
             <Grid item xs={12} sm={3} md={3} key={data.skuId}>
-              <ShopItem data={data} addToCart={addToCartThunk} addToFav={addToFavThunk} removeFromFav={removeFromFavThunk} />
+              <ShopItem data={data} />
             </Grid>
           ))
         }

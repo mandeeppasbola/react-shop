@@ -6,15 +6,11 @@ import Typography from '@material-ui/core/Typography';
 
 import SavedItem from './SavedItem';
 
-const Saved = ({ userSaved, saved, getSavedThunk, addToCartThunk, removeFromSavedThunk }) => {
+const Saved = ({ userSaved, saved, getSavedThunk }) => {
+
   useEffect(() => {
     getSavedThunk(userSaved);
   }, []);
-
-  const moveToCart = (product) => {
-    removeFromSavedThunk(product.skuId);
-    addToCartThunk(product);
-  }
 
   return (
     <div>
@@ -26,7 +22,7 @@ const Saved = ({ userSaved, saved, getSavedThunk, addToCartThunk, removeFromSave
           {
             saved.map((data) => (
               <Grid item xs={12} key={data.skuId}>
-                <SavedItem data={data} moveToCart={moveToCart} removeFromSaved={removeFromSavedThunk} />
+                <SavedItem data={data} />
               </Grid>
             ))
           }

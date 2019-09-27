@@ -9,11 +9,11 @@ export const setSavedAction = (products) => {
   )
 }
 
-export const addToSavedAction = (skuId) => {
+export const addToSavedAction = (product) => {
   return (
     {
       type: type.ADD_TO_SAVED,
-      payload: skuId
+      payload: product
     }
   )
 }

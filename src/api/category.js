@@ -1,9 +1,9 @@
-import { listData } from '../data/';
+import { categoryData } from '../data/';
 
-export const getCategoriesApi = () => (
+export const getCategoryApi = () => (
   new Promise((resolve, reject) => {
     setTimeout(function () {
-      resolve(listData);
+      resolve(categoryData);
     }, 300);
   })
 );

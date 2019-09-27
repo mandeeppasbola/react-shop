@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import ItemActions from './ItemActions';
+import ItemActionsContainer from '../containers/ItemActions';
 import ItemPrices from './ItemPrices';
 
 import { AdapterLink } from '../utilities';
@@ -25,8 +25,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const CartItem = ({ data, moveToSaved, removeFromCart }) => {
+const CartItem = ({ data }) => {
   const classes = useStyles();
+  const { sellPrice, listPrice } = data;
+  const price = sellPrice ? sellPrice : listPrice;
+  const [total, setTotal] = useState(price);
+
+  useEffect(() => {
+    const total = price * data.quantity;
+    setTotal(total);
+  }, [data.quantity]);
 
   return (
     <Card className={classes.card}>
@@ -46,11 +54,14 @@ const CartItem = ({ data, moveToSaved, removeFromCart }) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <ItemActions variant='cart' data={data} moveToSaved={moveToSaved} removeFromCart={removeFromCart} />
+          <ItemActionsContainer variant='cart' data={data} />
           <Button aria-label="view details" component={AdapterLink} to={`/detail/${data.skuId}`}>
             View
           </Button>
         </CardActions>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {total}
+        </Typography>
       </div>
     </Card>
   )

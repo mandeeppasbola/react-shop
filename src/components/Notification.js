@@ -45,18 +45,17 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Notification = ({ variant, message }) => {
+const Notification = ({ variant, message, removeNotificationAction }) => {
   const classes = useStyles();
-  const Icon = variantIcon[variant];
+  const Icon = variant ? variantIcon[variant] : null;
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
-    // remove msg from store
+    removeNotificationAction();
   };
-
-  return (
+  return (variant && message) ? (
     <Snackbar
       anchorOrigin={{
         vertical: 'bottom',
@@ -82,7 +81,7 @@ const Notification = ({ variant, message }) => {
         ]}
       />
     </Snackbar>
-  )
+  ) : null;
 }
 
 export default Notification;

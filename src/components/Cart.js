@@ -9,22 +9,17 @@ import SummaryContainer from '../containers/Summary';
 import CartItem from './CartItem';
 
 const Cart = ({
-  userCart, cart, getCartThunk, addToSavedThunk, removeFromCartThunk
+  userCart, cart, getCartThunk
 }) => {
 
   useEffect(() => {
     getCartThunk(userCart);
   }, []);
 
-  const moveToSaved = (product) => {
-    removeFromCartThunk(product.skuId);
-    addToSavedThunk(product);
-  }
-
   return (
     <>
       <div>
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant="h4" component="h1">
           Cart
       </Typography>
         <Grid container spacing={3}>
@@ -32,7 +27,7 @@ const Cart = ({
             {
               cart.map((data) => (
                 <Grid item xs={12} key={data.skuId}>
-                  <CartItem data={data} moveToSaved={moveToSaved} removeFromCart={removeFromCartThunk} />
+                  <CartItem data={data} />
                 </Grid>
               ))
             }

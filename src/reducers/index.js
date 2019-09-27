@@ -6,6 +6,7 @@ import favReducer from './fav';
 import userReducer from './user';
 import savedReducer from './saved';
 import notificationReducer from './notification';
+import categoryReducer from './category';
 
 const rootReducer = combineReducers({
   cartReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   favReducer,
   userReducer,
   savedReducer,
-  notificationReducer
+  notificationReducer,
+  categoryReducer
 });
 export default rootReducer;

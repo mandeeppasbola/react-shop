@@ -1,8 +1,10 @@
 import { addToFavApi, removeFromFavApi, getProductsApi } from '../api';
 import {
   setFavAction, addToFavAction, removeFromFavAction,
-  addToUserFavAction, removeFromUserFavAction
+  addToUserFavAction, removeFromUserFavAction,
+  setNotificationAction
 } from '../actions'
+import { notifications } from '../constants';
 
 export const getFavThunk = (skuIdArr) => {
   return (dispatch) => {
@@ -12,20 +14,26 @@ export const getFavThunk = (skuIdArr) => {
   }
 }
 
-export const addToFavThunk = (skuId) => {
+export const addToFavThunk = (product, showNotification) => {
   return (dispatch) => {
-    addToFavApi(skuId).then(() => {
-      dispatch(addToUserFavAction(skuId));
-      dispatch(addToFavAction(skuId));
+    addToFavApi(product.skuId).then(() => {
+      dispatch(addToUserFavAction(product.skuId));
+      dispatch(addToFavAction(product));
+      if (showNotification) {
+        dispatch(setNotificationAction(notifications.addToFavSuccess));
+      }
     });
   }
 }
 
-export const removeFromFavThunk = (skuId) => {
+export const removeFromFavThunk = (skuId, showNotification) => {
   return (dispatch) => {
-    removeFromFavApi().then(() => {
+    removeFromFavApi(skuId).then(() => {
       dispatch(removeFromUserFavAction(skuId));
       dispatch(removeFromFavAction(skuId));
+      if (showNotification) {
+        dispatch(setNotificationAction(notifications.removeFromFavSuccess));
+      }
     });
   }
 }

@@ -4,6 +4,7 @@ import { addToCartThunk, removeFromCartThunk, getCartThunk } from './cart';
 import { addToFavThunk, removeFromFavThunk, getFavThunk } from './fav';
 import { addToSavedThunk, removeFromSavedThunk, getSavedThunk } from './saved';
 import { getUserThunk } from './user';
+import { getCategoryThunk } from './category';
 export {
   getProductsThunk,
   getDetailsThunk,
@@ -16,5 +17,6 @@ export {
   getUserThunk,
   addToSavedThunk,
   removeFromSavedThunk,
-  getSavedThunk
+  getSavedThunk,
+  getCategoryThunk
 }
