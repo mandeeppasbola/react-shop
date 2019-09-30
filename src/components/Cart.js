@@ -14,7 +14,7 @@ const Cart = ({
 
   useEffect(() => {
     getCartThunk(userCart);
-  }, []);
+  }, [userCart]);
 
   return (
     <>

@@ -5,11 +5,13 @@ import { addToCartThunk, addToFavThunk, addToSavedThunk, removeFromCartThunk, re
 import { setNotificationAction } from '../actions';
 
 const mapStateToProps = ({ userReducer }, ownProps) => {
-  const { variant, message } = ownProps;
+  const { variant, data } = ownProps;
+  const { quantity } = data;
   const { cart, fav, saved } = userReducer;
   return {
     variant,
-    message,
+    data,
+    quantity,
     cart,
     fav,
     saved

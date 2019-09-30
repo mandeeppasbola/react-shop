@@ -13,7 +13,7 @@ import { notifications } from '../constants';
 import { isInArray } from '../utilities';
 
 const ItemActions = ({
-  variant, data, cart, fav, saved,
+  variant, data, quantity, cart, fav, saved,
   addToCartThunk, addToFavThunk, addToSavedThunk, removeFromCartThunk, removeFromFavThunk, removeFromSavedThunk, setQuantityThunk,
   setNotificationAction
 }) => {

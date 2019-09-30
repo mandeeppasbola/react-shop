@@ -2,18 +2,19 @@ import { addToCartApi, removeFromCartApi, getProductsApi, setQuantityApi } from 
 import {
   addToCartAction, removeFromCartAction, setCartAction,
   addToUserCartAction, removeFromUserCartAction,
-  setNotificationAction
+  setNotificationAction, setQuantityAction
 } from '../actions';
 import { notifications } from '../constants';
 
-export const getCartThunk = (userCartArr) => {
-  const skuIdArr = Object.keys(userCartArr);
+export const getCartThunk = (userCartObj) => {
+  const skuIdArr = Object.keys(userCartObj);
   return (dispatch) => {
     getProductsApi({ skuIdArr }).then((productArr) => {
       const productWithQuantityArr = productArr.map((product) => {
-        product.quantity = userCartArr[product.skuId]
+        product.quantity = userCartObj[product.skuId]
         return product;
       })
+      console.log(productWithQuantityArr);
       dispatch(setCartAction(productWithQuantityArr));
     });
   }

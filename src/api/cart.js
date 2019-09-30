@@ -13,3 +13,11 @@ export const removeFromCartApi = (skuId) => (
     }, 300);
   })
 );
+
+export const setQuantityApi = (skuId, quantity) => (
+  new Promise((resolve, reject) => {
+    setTimeout(function (resp) {
+      resolve(resp);
+    }, 300);
+  })
+);

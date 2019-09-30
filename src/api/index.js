@@ -1,7 +1,7 @@
 import { getProductsApi } from './list';
 import { getDetailsApi } from './details';
 import { getCategoryApi } from './category';
-import { addToCartApi, removeFromCartApi } from './cart';
+import { addToCartApi, removeFromCartApi, setQuantityApi } from './cart';
 import { addToFavApi, removeFromFavApi } from './fav';
 import { addToSavedApi, removeFromSavedApi } from './saved';
 import { getUserApi } from './user';
@@ -16,5 +16,6 @@ export {
   removeFromFavApi,
   getUserApi,
   addToSavedApi,
-  removeFromSavedApi
+  removeFromSavedApi,
+  setQuantityApi
 };

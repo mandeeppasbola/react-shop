@@ -27,14 +27,14 @@ const useStyles = makeStyles(theme => ({
 
 const CartItem = ({ data }) => {
   const classes = useStyles();
-  const { sellPrice, listPrice } = data;
+  const { sellPrice, listPrice, quantity } = data;
   const price = sellPrice ? sellPrice : listPrice;
   const [total, setTotal] = useState(price);
 
   useEffect(() => {
-    const total = price * data.quantity;
+    const total = price * quantity;
     setTotal(total);
-  }, [data.quantity]);
+  }, [quantity]);
 
   return (
     <Card className={classes.card}>

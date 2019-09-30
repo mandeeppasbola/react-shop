@@ -26,3 +26,12 @@ export const removeFromCartAction = (skuId) => {
     }
   )
 }
+
+export const setQuantityAction = (skuId, quantity) => {
+  return (
+    {
+      type: type.SET_QUANTITY,
+      payload: { skuId, quantity }
+    }
+  )
+}

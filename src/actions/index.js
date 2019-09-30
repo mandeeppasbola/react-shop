@@ -1,6 +1,6 @@
 import { setProductsAction } from './list';
 import { setDetailsAction } from './detail';
-import { addToCartAction, removeFromCartAction, setCartAction } from './cart';
+import { addToCartAction, removeFromCartAction, setCartAction, setQuantityAction } from './cart';
 import { addToFavAction, removeFromFavAction, setFavAction } from './fav';
 import { setSavedAction, addToSavedAction, removeFromSavedAction } from './saved';
 import { setNotificationAction, removeNotificationAction } from './notification';
@@ -33,5 +33,6 @@ export {
   removeFromSavedAction,
   setNotificationAction,
   removeNotificationAction,
-  setCategoryAction
+  setCategoryAction,
+  setQuantityAction
 }
